@@ -1,0 +1,133 @@
+   1. NAVIE BAYES 
+
+
+from sklearn.naive_bayes import GaussianNB
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn.datasets import load_iris
+
+iris = load_iris() 
+X, y = iris.data, iris.target
+Xtrain, Xtest, y_train, y_test = train_test_split(X, y, stratify = y, random_state = 1, train_size = 0.7)
+
+a = GaussianNB()
+a.fit(Xtrain, y_train)
+y_pred = a.predict(Xtest)
+acc = accuracy_score(y_test, y_pred)
+
+cm = confusion_matrix(y_test, y_pred)
+cm
+
+print("Accuracy : ", acc)
+
+2.  KNN
+
+
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn.datasets import load_iris
+
+iris = load_iris() 
+X, y = iris.data, iris.target
+Xtrain, Xtest, y_train, y_test = train_test_split(X, y, stratify = y, random_state = 1, train_size = 0.7)
+
+a = KNeighborsClassifier(n_neighbors=7)
+a.fit(Xtrain, y_train)
+y_pred = a.predict(Xtest)
+acc = accuracy_score(y_test, y_pred)
+
+cm = confusion_matrix(y_test, y_pred)
+cm
+
+print("Accuracy : ", acc)
+
+
+
+3. LINEAR REGRESSION
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.datasets import load_iris
+
+iris = load_iris() 
+iris['feature_names']
+
+X, y = iris.data, iris.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, stratify = y, random_state = 1, train_size = 0.7)
+
+a = LinearRegression()
+a.fit(X_train, y_train)
+y_pred = a.predict(X_test)
+mse = mean_squared_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+print("Mean Square Error : ", mse)
+
+print("Coefficient of determination : ", r2)
+
+
+4   DECISION TREE
+
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix, accuracy_score
+from sklearn.datasets import load_iris
+
+iris = load_iris() 
+X, y = iris.data, iris.target
+Xtrain, Xtest, y_train, y_test = train_test_split(X, y, stratify = y, random_state = 1, train_size = 0.7)
+
+a = DecisionTreeClassifier()
+a.fit(Xtrain, y_train)
+y_pred = a.predict(Xtest)
+acc = accuracy_score(y_test, y_pred)
+
+cm = confusion_matrix(y_test, y_pred)
+cm
+
+print("Accuracy : ", acc)
+
+
+
+CO1  
+   1 .  MATPLOTLIB, NUMPY
+
+........BAR GRAPH........
+
+import numpy as np
+import matplotlib.pyplot as plt
+categories = ['Category A', 'Category B', 'Category C', 'Category D']
+values = [20, 35, 30, 15]
+plt.bar(categories, values, color='blue')
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.title('Bar Graph Example')
+plt.show()
+
+
+..........PIE CHART..........
+
+import matplotlib.pyplot as plt
+labels = ['Category A', 'Category B', 'Category C', 'Category D']
+sizes = [20, 35, 30, 15]
+plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90, colors=['red', 'green', 'blue', 'yellow'])
+plt.title('Pie Chart Example')
+plt.show()
+
+2.  PLOTLY   AND PANDAS
+
+import numpy as np
+import pandas as pd
+import plotly.express as px
+data = {'Category': ['Category A', 'Category B', 'Category C', 'Category D'],
+        'Values': [20, 35, 30, 15]}
+df = pd.DataFrame(data)
+fig = px.bar(df, x='Category', y='Values', title='Bar Graph Example', labels={'Values': 'Values'})
+fig.show()
+
+
+
+
+
+
